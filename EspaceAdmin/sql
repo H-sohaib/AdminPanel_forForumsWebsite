@@ -1,0 +1,111 @@
+<!-- <?php
+
+session_start();
+include("../conf.php");
+include("side.php");
+$id_responsable=$_SESSION['id_responsable'];
+
+$sql=$cnx->prepare("SELECT * from entreprise where id_responsable='$id_responsable'");
+$sql->execute();
+$data=$sql->fetch(PDO::FETCH_ASSOC);
+
+    
+if (isset($_POST['submit'])) {
+    if(empty($nom) || !empty($secteur) || empty($ville)  || empty($code_postal ) || empty($adresse ) || empty($telephone )) {
+
+    $nom =htmlspecialchars(strtolower(trim($_POST['nom'])));
+    $secteur = htmlspecialchars(strtolower(trim($_POST['secteur'])));
+    $ville = htmlspecialchars(strtolower(trim($_POST['ville'])));
+    $code_postal =htmlspecialchars(strtolower(trim($_POST['code_postal'])));
+    $adresse = htmlspecialchars(strtolower(trim($_POST['adresse'])));
+    $telephone = htmlspecialchars(strtolower(trim($_POST['telephone'])));
+
+    $logo = $_FILES['file'];
+
+ 
+    $uniqueID=uniqid();
+    $logo_name = $uniqueID.$logo['name'];
+    $logo_tmp = $logo['tmp_name'];
+    $logo_size = $logo['size'];
+ 
+ 
+    
+if($sql->rowCount()>0){
+    $query1 = $cnx->prepare("UPDATE entreprise set nom='$nom', secteur='$secteur', ville='$ville', code_postal='$code_postal', adresse='$adresse', telephone='$telephone', logo='$logo_name' where id_responsable='$id_responsable'");
+ 
+    if($query1->execute()){
+        $_SESSION["message"]="Entreprise enregistrée avec success !";
+          
+      }
+      else{
+        $_SESSION["message"]="L'enregistrement de l'entreprise a échoué";
+        header("Location:accueil.php");
+      }
+}else{
+    if($logo_size<5*1024*1024){
+        $query =$cnx->prepare( "INSERT INTO entreprise (nom, secteur, ville, code_postal, adresse, telephone,logo) VALUES('$nom', '$secteur', '$ville', '$code_postal', '$adresse', '$telephone','$logo_name')");
+        move_uploaded_file($logo_tmp, "../uploads/{$logo_name}");
+      }
+    if(  $query2->execute()){
+        $_SESSION["message"]="Entreprise enregistrée avec success !";
+        
+        
+      }
+      else{
+        $_SESSION["message"]="L'enregistrement de l'entreprise a échoué";
+      echo "la";
+     
+      }
+}
+     
+    } else{
+       
+    }
+}
+
+$sql2=$cnx->prepare("SELECT * from adresse_facturation where id_responsable='$id_responsable'");
+$sql2->execute();
+$info=$sql2->fetch(PDO::FETCH_ASSOC);
+
+if (isset($_POST['valider'])) {
+    if(empty($nom)) {
+
+    $nom_f =htmlspecialchars(strtolower(trim($_POST['nom_f'])));
+  
+    $email_f = htmlspecialchars(strtolower(trim($_POST['email_f'])));
+    $prenom_f = htmlspecialchars(strtolower(trim($_POST['prenom_f'])));
+    $ville_f = htmlspecialchars(strtolower(trim($_POST['ville_f'])));
+    $code_postal_f =htmlspecialchars(strtolower(trim($_POST['code_postal_f'])));
+    $adresse_f = htmlspecialchars(strtolower(trim($_POST['adresse_f'])));
+    $telephone_f = htmlspecialchars(strtolower(trim($_POST['telephone_f'])));
+    
+if( $sql2->rowCount()>0){
+    $query3=$cnx->prepare( "UPDATE adresse_facturation set nom='$nom_f', prenom='$prenom_f', ville='$ville_f', code_postal=' $code_postal_f', adresse='$adresse_f', telephone='$telephone_f',email='$email_f' where id_responsable='$id_responsable'");
+    if( $query3->execute()){
+        $_SESSION["message"]="Adresse de facturation est enregistrée avec success !";
+      }
+      else{
+        $_SESSION["message"]="L'enregistrement de l'entreprise a échoué";
+      }
+}else{
+    $query2 =$cnx->prepare("INSERT into adresse_facturation (nom,prenom,email,adresse,ville,code_postal,telephone,id_responsable) values('$nom_f','$prenom_f','$email_f','$adresse_f','$ville_f','$code_postal_f','$telephone_f','$id_responsable')");
+    if( $query2->execute()){
+        $_SESSION["message"]="Entreprise enregistrée avec success !";
+    
+      }
+      else{
+        $_SESSION["message"]="L'enregistrement de l'entreprise a échoué";
+      echo "la";
+     
+      }
+}
+     
+    } else{
+       
+    }
+ 
+}
+
+
+
+?> -->

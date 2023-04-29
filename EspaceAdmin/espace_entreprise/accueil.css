@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+   margin: 0px;
+
+}
+.one{
+    display: flex;
+    flex-direction: column;
+}
+#two{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+
+   margin-top: 100px;
+}
+#two h2{
+    color:#a31058;
+}
+
+#first img{
+    border-radius: 25px;
+    width: 450px;
+    height: 400px;
+}
+
+
+@media (max-width: 800px) { 
+    .one{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+   #two{
+    margin-bottom: 20px;
+   
+   }
+   #two img{
+    width: 350px;
+    height: 300px;
+   }
+
+ }

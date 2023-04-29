@@ -1,0 +1,1 @@
+<link rel="stylesheet" href="<?= $ASSETS_PATH . 'css/side_bar.css' ?>" />

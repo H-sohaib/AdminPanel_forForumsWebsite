@@ -1,0 +1,294 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+body{
+    height: 100vh;
+    overflow: hidden;
+}
+form{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+    background: url(../images/bg1.jpeg);
+    background-size: cover;
+    position: relative;
+    background-repeat: no-repeat;
+}
+.account{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 400px;
+    background-color: rgba(0,0,0,0.7);
+    box-shadow: rgba(0,0,0,0.5) 0px 0px 100px;
+    display: flex;
+    
+    flex-direction: column;
+    border-radius: 40px;
+}
+.headers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tabs{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: table;
+}
+.tab{
+    width: 400px;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.tab .inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.account .headers h1{
+    margin-right: 10px;
+    color: coral;
+    font-size: 17px;
+    cursor: pointer;
+}
+.header-inactive{
+    opacity: 0.7;
+}
+.tab h1{
+    color: white;
+    margin-bottom: 30px;
+    font-size: 50px;
+}
+.account input{
+    width: 300px;
+    font-size: 18px;
+    height: 40px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: white;
+}
+.account input::placeholder{
+    color: white;
+}
+.account button{
+    width: 300px;
+    margin-top: 30px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: coral;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+}
+.account a{
+    color: coral;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.cover{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.cover-white{
+    background-color: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+}
+#tab-2{
+    opacity: 0;
+}
+.scrollable{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: url(../images/bg1.jpeg);
+    background-size: cover;
+    position: relative;
+    background-repeat: no-repeat;   
+}
+.signup{
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 700px;
+    background-color: rgba(0,0,0,0.7);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.signup h1{
+    color: white;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.signup input[type='text'],
+.signup input[type='email'],
+.signup input[type='password']{
+    width: 80%;
+    height: 40px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    font-size: 18px;
+    border-bottom: 1px solid white;
+}
+.signup input::placeholder{
+    color: white;
+}
+.checkbox{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.checkbox input{
+    transform: scale(1.5);
+    margin-right: 20px;
+}
+.checkbox label{
+    color: white;
+}
+.checkbox strong{
+    color: coral;
+}
+.bar{
+    width: 80%;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 25px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.bar img{
+    width: 30px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+.bar a{
+    color: white;
+    font-size: 18px;
+}
+.signup button{
+    width: 80%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: coral;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+}
+.selection, #forgot-password{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(170, 157, 157, 0.275);
+    backdrop-filter: blur(10px);
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+    transition: 0.5s;
+}
+#forgot-password .inner h1{
+    font-size: 40px;
+    text-align: center;
+}
+#forgot-password .inner input{
+    width: 80%;
+    height: 40px;
+    font-size: 18px;
+    border-bottom: 1px solid #333;
+}
+#forgot-password .inner button{
+    width: 80%;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: coral;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+}
+#forgot-password .inner p{
+    font-size: 18px;
+    text-align: center;
+    color: #666;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#forgot-password .inner{
+    width: 600px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+    opacity: 0;
+    transition: 0.5s;
+}
+#forgot-password .inner img{
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 30px;
+    cursor: pointer;
+}
+.selection .inner{
+    width: 500px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    background-color: white;
+    border-radius: 40px;
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    top: 100px;
+    transition: 0.5s;
+}
+.option{
+    width: 80%;
+    margin: 0 auto;
+    cursor: pointer;
+    height: 40px;
+    border-bottom: 1px solid transparent;
+    transition: 0.5s;
+}
+.option:hover{
+    border-bottom: 1px solid #333;
+}
